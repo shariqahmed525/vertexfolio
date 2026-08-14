@@ -6,7 +6,7 @@ export const config = {
   showScrollToTop: true,
   email: "shariq.ahmed525@gmail.com",
   phone: "+92-3032139848",
-  resume: "/pdf/ShariqAhmed-Resume.pdf",
+  resume: getAssetPath("/pdf/ShariqAhmed-Resume.pdf"),
   socials: [
     {
       label: "LinkedIn",
@@ -27,103 +27,103 @@ export const config = {
   techIcons: [
     {
       name: "React",
-      imagePath: "/assets/tech-icons/react.svg",
+      imagePath: getAssetPath("/assets/tech-icons/react.svg"),
     },
     {
       name: "Next.js",
-      imagePath: "/assets/tech-icons/next.js.svg",
+      imagePath: getAssetPath("/assets/tech-icons/next.js.svg"),
     },
     {
       name: "TypeScript",
-      imagePath: "/assets/tech-icons/typescript.svg",
+      imagePath: getAssetPath("/assets/tech-icons/typescript.svg"),
     },
     {
       name: "Angular",
-      imagePath: "/assets/tech-icons/angular.svg",
+      imagePath: getAssetPath("/assets/tech-icons/angular.svg"),
     },
     {
       name: "GSAP",
-      imagePath: "/assets/tech-icons/gsap.svg",
+      imagePath: getAssetPath("/assets/tech-icons/gsap.svg"),
     },
     {
       name: "React Native",
-      imagePath: "/assets/tech-icons/react.svg",
+      imagePath: getAssetPath("/assets/tech-icons/react.svg"),
     },
     {
       name: "Expo",
-      imagePath: "/assets/tech-icons/expo.svg",
+      imagePath: getAssetPath("/assets/tech-icons/expo.svg"),
     },
     {
       name: "Node.js",
-      imagePath: "/assets/tech-icons/node.js.svg",
+      imagePath: getAssetPath("/assets/tech-icons/node.js.svg"),
     },
     {
       name: "Nest.js",
-      imagePath: "/assets/tech-icons/nest.js.svg",
+      imagePath: getAssetPath("/assets/tech-icons/nest.js.svg"),
     },
     {
       name: "Express.js",
-      imagePath: "/assets/tech-icons/express.svg",
+      imagePath: getAssetPath("/assets/tech-icons/express.svg"),
     },
     {
       name: "REST",
-      imagePath: "/assets/tech-icons/rest.svg",
+      imagePath: getAssetPath("/assets/tech-icons/rest.svg"),
     },
     {
       name: "GraphQL",
-      imagePath: "/assets/tech-icons/graphql.svg",
+      imagePath: getAssetPath("/assets/tech-icons/graphql.svg"),
     },
     {
       name: "PostgreSQL",
-      imagePath: "/assets/tech-icons/postgressql.svg",
+      imagePath: getAssetPath("/assets/tech-icons/postgressql.svg"),
     },
     {
       name: "Neon",
-      imagePath: "/assets/tech-icons/neon.svg",
+      imagePath: getAssetPath("/assets/tech-icons/neon.svg"),
     },
     {
       name: "Supabase",
-      imagePath: "/assets/tech-icons/supabase.svg",
+      imagePath: getAssetPath("/assets/tech-icons/supabase.svg"),
     },
     {
       name: "Mongo DB",
-      imagePath: "/assets/tech-icons/mongodb.svg",
+      imagePath: getAssetPath("/assets/tech-icons/mongodb.svg"),
     },
     {
       name: "Prisma",
-      imagePath: "/assets/tech-icons/prisma.svg",
+      imagePath: getAssetPath("/assets/tech-icons/prisma.svg"),
     },
     {
       name: "Redis",
-      imagePath: "/assets/tech-icons/redis.svg",
+      imagePath: getAssetPath("/assets/tech-icons/redis.svg"),
     },
     {
       name: "Docker",
-      imagePath: "/assets/tech-icons/docker.svg",
+      imagePath: getAssetPath("/assets/tech-icons/docker.svg"),
     },
     {
       name: "Vercel",
-      imagePath: "/assets/tech-icons/vercel.svg",
+      imagePath: getAssetPath("/assets/tech-icons/vercel.svg"),
     },
     {
       name: "AWS",
-      imagePath: "/assets/tech-icons/aws.svg",
+      imagePath: getAssetPath("/assets/tech-icons/aws.svg"),
     },
     {
       name: "Nginx",
-      imagePath: "/assets/tech-icons/nginx.svg",
+      imagePath: getAssetPath("/assets/tech-icons/nginx.svg"),
     },
     {
       name: "Adonis.js",
-      imagePath: "/assets/tech-icons/adonisjs.svg",
+      imagePath: getAssetPath("/assets/tech-icons/adonisjs.svg"),
     },
     {
       name: "Material UI",
-      imagePath: "/assets/tech-icons/material-ui.svg",
+      imagePath: getAssetPath("/assets/tech-icons/material-ui.svg"),
     },
     {
       name: "MySQL",
-      imagePath: "/assets/tech-icons/mysql.svg",
+      imagePath: getAssetPath("/assets/tech-icons/mysql.svg"),
     },
   ],
 };
@@ -161,12 +161,18 @@ export type Testimonial = {
   role: string;
 };
 
-const getFullUrl = (path: string) => {
-  const baseUrl =
-    typeof window !== "undefined"
-      ? (window?.location?.origin ?? SITE_URL)
-      : SITE_URL;
-  return `${baseUrl}${path}`;
+// const getFullUrl = (path: string) => {
+//   const baseUrl =
+//     typeof window !== "undefined"
+//       ? (window?.location?.origin ?? SITE_URL)
+//       : SITE_URL;
+//   return `${baseUrl}${path}`;
+// };
+
+function getAssetPath(path: string) {
+  const isProd = process.env.NODE_ENV === "production";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return `${isProd ? basePath : ""}${path}`;
 };
 
 export const siteContent = {
@@ -212,7 +218,7 @@ export const siteContent = {
     visible: true,
     eyebrow: "~/about",
     heading: "From schema to screen.",
-    image: "/assets/images/profile.png",
+    image: getAssetPath("/assets/images/profile.png"),
     imageAlt: "Professional portrait of Shariq Ahmed, a Senior Full Stack Developer with 8+ years of experience specializing in React, Next.js, Node.js, and scalable web architectures.",
     body: [
       "I am a Senior Full Stack Developer dedicated to architecting and building robust digital products from the ground up. My approach bridges the gap between intricate backend data models and seamless frontend user experiences.",
@@ -484,7 +490,7 @@ export const siteContent = {
         issuer: "NestJS",
         year: "Apr 2026",
         description: "The official NestJS Fundamentals course provides a comprehensive overview of building scalable, enterprise-grade backend applications. It covers core architectural concepts, dependency injection, routing, and database integration using TypeScript.",
-        link: getFullUrl("/assets/certificates/NestJS-Fundamental.jpeg"),
+        link: getAssetPath("/assets/certificates/NestJS-Fundamental.jpeg"),
       },
       {
         title: "Meta React Native",
@@ -505,7 +511,7 @@ export const siteContent = {
         issuer: "COURSERA",
         year: "Aug 2024 - Oct 2024",
         description: "DevOps on AWS specialization teaches me how to use the combination of DevOps philosophies, practices and tools to develop, deploy, and maintain applications in the AWS Cloud. Benefits of adopting DevOps include: rapid delivery, reliability, scalability, security and improved collaboration.",
-        link: getFullUrl("/assets/certificates/DevOps-on-AWS%20Specialization-Coursera-P4H18ETM02V8.jpeg"),
+        link: getAssetPath("/assets/certificates/DevOps-on-AWS%20Specialization-Coursera-P4H18ETM02V8.jpeg"),
       },
       {
         title: "React Nano Degree",
@@ -519,21 +525,21 @@ export const siteContent = {
         issuer: "SMIT",
         year: "Jan 2018 - Feb 2019",
         description: "The Certified Web & Mobile Application Developer program at Saylani Mass IT Training covers essential technologies for modern app development. It React, React Native, Node.js, Express.js, MongoDB, and Expo. This training equips learners with the skills to build dynamic web and mobile applications.",
-        link: getFullUrl("/assets/certificates/saylani-web-and-mobile-app-development.png"),
+        link: getAssetPath("/assets/certificates/saylani-web-and-mobile-app-development.png"),
       },
       {
         title: "Progressive Web App Developer",
         issuer: "SMIT",
         year: "Jul 2018",
         description: "The Progressive Web App (PWA) Program at Saylani Mass IT Training teaches the skills needed to build fast and reliable web applications. It covers HTML, CSS, JavaScript, ECMAScript, Firebase, and PWA technologies. This training helps learners create web apps that work offline, load quickly, and provide a smooth user experience.",
-        link: getFullUrl("/assets/certificates/progressive-web-app-development.png"),
+        link: getAssetPath("/assets/certificates/progressive-web-app-development.png"),
       },
       {
         title: "ACCP PRO",
         issuer: "APTECH",
         year: "Feb 2016 - Feb 2019",
         description: "ACCP PRO (Aptech Certified Computer Program Professional) is a complete career-oriented program to prepare students for todays I.T. Industry. The course gives a strong foundation to students on various concepts related to software development and global technology insights.",
-        link: getFullUrl("/assets/certificates/accp-pro-certificate.png"),
+        link: getAssetPath("/assets/certificates/accp-pro-certificate.png"),
       },
     ],
   },
