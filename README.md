@@ -18,6 +18,7 @@ Just configure `src/config.ts` to get your personal portfolio up and running. Ve
 - [Managing Tech Icons](#managing-tech-icons)
 - [Deployment](#deployment)
 - [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
 
 ## Portfolio Sections
 ✔️ 3D Interactive Hero Canvas\
@@ -158,3 +159,10 @@ Since Next.js requires a specific setup for GitHub Pages, you must use GitHub Ac
 - [GSAP](https://gsap.com/) & ScrollTrigger
 - [Lenis](https://lenis.darkroom.engineering/) (Smooth Scrolling)
 - [Prismic CMS](https://prismic.io/)
+
+## Contributing
+
+If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/saadpasta/developerFolio/pulls).
+
+- Connect with LinkedIn to get Summary, Skills, Blogs and Talks
+- Add More Sections
