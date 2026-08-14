@@ -16,6 +16,7 @@ Just configure `src/config.ts` to get your personal portfolio up and running. Ve
 - [How to Use](#how-to-use)
 - [Configuration & Customization](#configuration--customization)
 - [Managing Tech Icons](#managing-tech-icons)
+- [Deployment](#deployment)
 - [Technologies Used](#technologies-used)
 
 ## Portfolio Sections
@@ -123,6 +124,30 @@ The portfolio displays tech stack icons across various sections (like Projects a
 If you name your SVG file correctly, you don't even need to add it to the `techIcons` array! The `<TechIcon />` component will automatically try to find an SVG by removing spaces and special characters from the name and converting it to lowercase.
 - **Example 1 (React):** If you list `"React"`, the component will look for `react.svg`.
 - **Example 2 (React Native):** If you list `"React Native"`, it will look for `reactnative.svg`.
+
+## Deployment
+
+Vertex Folio is built with Next.js (App Router) and can be easily deployed to platforms like Vercel, Netlify, or GitHub Pages.
+
+### Deploying to Vercel (Recommended)
+
+The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+1. Push your code to a GitHub repository.
+2. Import the project in Vercel.
+3. Add your environment variables (like your Prismic endpoint, if configured).
+4. Vercel will automatically build and deploy your site.
+
+For more details, check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
+
+### Deploying to GitHub Pages
+
+Since Next.js requires a specific setup for GitHub Pages, you must use GitHub Actions to build and export your site as static HTML.
+
+1. In `next.config.mjs` (or `.ts`), add `output: 'export'`.
+2. **Note:** If you are using the Next.js `<Image />` component, you also need to set `images: { unoptimized: true }` in your config.
+3. Navigate to your repository settings on GitHub, go to **Pages**, and select **GitHub Actions** as the source.
+4. A pre-configured workflow file is already included in this project at `.github/workflows/nextjs.yml`. You do not need to create one manually.
+5. Push your changes, and GitHub Actions will automatically build and deploy your portfolio.
 
 ## Technologies Used 
 
