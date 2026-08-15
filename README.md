@@ -11,6 +11,7 @@
 Just configure `src/config.ts` to get your personal portfolio up and running. Vertex Folio is an SEO-first portfolio landing page built with **Next.js (App Router)**, **Three.js** (via React Three Fiber), **GSAP + ScrollTrigger**, **Lenis** smooth scrolling and **Prismic** as the headless CMS. Feel free to use it as-is or personalize it as much as you want.
 
 ## Table of Contents
+
 - [Portfolio Sections](#portfolio-sections)
 - [Getting Started](#getting-started)
 - [How to Use](#how-to-use)
@@ -21,6 +22,7 @@ Just configure `src/config.ts` to get your personal portfolio up and running. Ve
 - [Contributing](#contributing)
 
 ## Portfolio Sections
+
 ✔️ 3D Interactive Hero Canvas\
 ✔️ About Me & Statistics\
 ✔️ Skills & Tech Stack\
@@ -36,7 +38,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 You'll need [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
 
-## How To Use 
+## How To Use
 
 From your command line, clone and run Vertex Folio:
 
@@ -77,39 +79,42 @@ Here you configure your global information:
 This object manages all textual content, images, and section visibility across your portfolio.
 
 #### Global Meta & Branding (`meta`)
+
 Controls your global SEO and site branding. Note that **Contact** and **Certifications** pages have their own nested `meta` objects for page-specific SEO.
 
-| Property | Description |
-| :--- | :--- |
-| **`logo`** | Text-based logo displayed in the header. Example: `{ text: "shariq", highlight: ".dev" }` |
-| **`title`** | The global `<title>` for your site. |
-| **`description`** | SEO and Open Graph description. |
-| **`keywords`** / **`author`** | Used in meta tags and JSON-LD schema for search engines. |
-| **`themeColor`** | Browser tab color on mobile devices. |
+| Property                      | Description                                                                               |
+| :---------------------------- | :---------------------------------------------------------------------------------------- |
+| **`logo`**                    | Text-based logo displayed in the header. Example: `{ text: "shariq", highlight: ".dev" }` |
+| **`title`**                   | The global `<title>` for your site.                                                       |
+| **`description`**             | SEO and Open Graph description.                                                           |
+| **`keywords`** / **`author`** | Used in meta tags and JSON-LD schema for search engines.                                  |
+| **`themeColor`**              | Browser tab color on mobile devices.                                                      |
 
 #### Common Section Properties
+
 Almost every section (e.g., `hero`, `about`) shares these generalized configuration properties:
 
-| Property | Example | Description |
-| :--- | :--- | :--- |
-| **`visible`** | `true` | Set to `false` to completely hide the section from the website. |
-| **`navLabel`** | `"~/about"` | The text that appears in the navigation menu. |
-| **`eyebrow`** | `"~/about"` | The small, mono-spaced text just above the main heading. |
-| **`heading`** | `"About Me"`| The main `<h2>` title of the section. |
+| Property       | Example      | Description                                                     |
+| :------------- | :----------- | :-------------------------------------------------------------- |
+| **`visible`**  | `true`       | Set to `false` to completely hide the section from the website. |
+| **`navLabel`** | `"~/about"`  | The text that appears in the navigation menu.                   |
+| **`eyebrow`**  | `"~/about"`  | The small, mono-spaced text just above the main heading.        |
+| **`heading`**  | `"About Me"` | The main `<h2>` title of the section.                           |
 
 #### Section-Specific Content
+
 Below the common properties, each section requires its own unique data.
 
-| Section | Key | What to update |
-| :--- | :--- | :--- |
-| **Hero** | `hero` | Main headline, subheading, and Call-to-Action buttons. |
-| **About** | `about` | Profile image, bio paragraphs, and statistics. |
-| **Projects** | `projects` | Portfolio pieces, descriptions, tech stack arrays, and links. |
-| **Stack** | `stack` | Technologies organized into groups (Frontend, Backend, etc.). |
-| **Experience**| `experience`| Work history, companies, and roles. |
-| **Testimonials**| `testimonials`| Quotes from clients or colleagues. |
-| **Certifications**| `certifications`| Degrees and certificates with image links. *(Note: Opens on a separate `/certifications` page).* |
-| **Contact** | `contact` | Customize the contact form text. |
+| Section            | Key              | What to update                                                                                   |
+| :----------------- | :--------------- | :----------------------------------------------------------------------------------------------- |
+| **Hero**           | `hero`           | Main headline, subheading, and Call-to-Action buttons.                                           |
+| **About**          | `about`          | Profile image, bio paragraphs, and statistics.                                                   |
+| **Projects**       | `projects`       | Portfolio pieces, descriptions, tech stack arrays, and links.                                    |
+| **Stack**          | `stack`          | Technologies organized into groups (Frontend, Backend, etc.).                                    |
+| **Experience**     | `experience`     | Work history, companies, and roles.                                                              |
+| **Testimonials**   | `testimonials`   | Quotes from clients or colleagues.                                                               |
+| **Certifications** | `certifications` | Degrees and certificates with image links. _(Note: Opens on a separate `/certifications` page)._ |
+| **Contact**        | `contact`        | Customize the contact form text.                                                                 |
 
 _Note: If you eventually connect Prismic CMS, its data will automatically override this local content!_
 
@@ -121,8 +126,9 @@ The portfolio displays tech stack icons across various sections (like Projects a
 2. **Place it in the public folder:** Save the downloaded `.svg` file into the `public/assets/tech-icons/` directory.
 3. **Link it in `config.ts`:** Add a new entry to the `techIcons` array.
 
-**Pro Tip (Auto-mapping):** 
+**Pro Tip (Auto-mapping):**
 If you name your SVG file correctly, you don't even need to add it to the `techIcons` array! The `<TechIcon />` component will automatically try to find an SVG by removing spaces and special characters from the name and converting it to lowercase.
+
 - **Example 1 (React):** If you list `"React"`, the component will look for `react.svg`.
 - **Example 2 (React Native):** If you list `"React Native"`, it will look for `reactnative.svg`.
 
@@ -133,6 +139,7 @@ Vertex Folio is built with Next.js (App Router) and can be easily deployed to pl
 ### Deploying to Vercel (Recommended)
 
 The easiest way to deploy a Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+
 1. Push your code to a GitHub repository.
 2. Import the project in Vercel.
 3. Add your environment variables (like your Prismic endpoint, if configured).
@@ -150,7 +157,7 @@ Since Next.js requires a specific setup for GitHub Pages, you must use GitHub Ac
 4. A pre-configured workflow file is already included in this project at `.github/workflows/nextjs.yml`. You do not need to create one manually.
 5. Push your changes, and GitHub Actions will automatically build and deploy your portfolio.
 
-## Technologies Used 
+## Technologies Used
 
 - [Next.js (App Router)](https://nextjs.org/)
 - [React](https://reactjs.org/)
@@ -162,7 +169,7 @@ Since Next.js requires a specific setup for GitHub Pages, you must use GitHub Ac
 
 ## Contributing
 
-If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/saadpasta/developerFolio/pulls).
+If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/shariqahmed525/vertexfolio/pulls).
 
 - Connect with LinkedIn to get Summary, Skills, Blogs and Talks
 - Add More Sections
