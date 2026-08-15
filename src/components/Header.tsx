@@ -69,7 +69,10 @@ export default function Header() {
             href="/#top"
             className="font-display font-extrabold text-[1.15rem] tracking-tight"
           >
-            {siteContent.meta.logo.text}<span className="text-signal">{siteContent.meta.logo.highlight}</span>
+            {siteContent.meta.logo.text}
+            <span className="text-signal">
+              {siteContent.meta.logo.highlight}
+            </span>
           </Link>
           <ul className="hidden lg:flex gap-7 list-none items-center">
             {links.map((l) => (
@@ -121,7 +124,10 @@ export default function Header() {
             onClick={() => setIsSidebarOpen(false)}
             className="font-display font-extrabold text-[1.15rem] tracking-tight"
           >
-            {siteContent.meta.logo.text}<span className="text-signal">{siteContent.meta.logo.highlight}</span>
+            {siteContent.meta.logo.text}
+            <span className="text-signal">
+              {siteContent.meta.logo.highlight}
+            </span>
           </Link>
           <button
             onClick={() => setIsSidebarOpen(false)}
@@ -142,7 +148,7 @@ export default function Header() {
                 onClick={() => setIsSidebarOpen(false)}
                 className="font-mono text-[1.05rem] text-paper transition-colors duration-200 hover:text-signal flex items-center justify-between w-full group"
               >
-                <span>~/{l.label}</span>
+                <span>{l.label}</span>
                 <span className="text-brand opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-hover:text-signal">
                   ↗
                 </span>
